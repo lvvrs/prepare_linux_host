@@ -7,20 +7,21 @@
   block:
 
     - name: Add EPEL Release repository for RPM based hosts
-      yum_repository:
-        name: epel
-        description: EPEL YUM REPO
-        baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+      yum:
+        name: epel-release
+        state: present
   
     - name: Install base packages
       yum:
         name: ['vim', 'tree', 'htop', 'nc', 'mc', 'wget', 'curl', 'yum-utils', 'tc']
         state: present
+        update_cache: yes
 
     - name: Update all packages
       yum:
         name: '*'
         state: latest
+        update_cache: yes
       notify: 
         - reboot_rpm_servers
 
