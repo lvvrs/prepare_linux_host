@@ -35,7 +35,7 @@
     
     - name: Install based packages with update repositories caches
       apt:
-        pkg: ['vim', 'tree', 'htop', 'nc', 'mc', 'wget', 'curl', 'tc', 'linux-cloud-tools']
+        pkg: ['vim', 'tree', 'htop', 'mc', 'wget', 'curl', 'tc', 'linux-cloud-tools']
         state: present
         update_cache: yes
 
