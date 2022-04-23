@@ -9,11 +9,5 @@
   become: true
   gather_facts: false
   roles:
-    - prepare_rpm_hosts
-
-- hosts: deb_hosts
-  become: true
-  gather_facts: false
-  roles:
-    - prepare_deb_hosts
+    - prepare_hosts
   
