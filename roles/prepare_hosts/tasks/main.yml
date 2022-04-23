@@ -24,7 +24,7 @@
       notify: 
         - reboot_rpm_servers
 
-  when: os_family == "RedHat"
+  when: ansible_facts.os_family == "RedHat"
 
 - name: Setup base packages and full update DEB based systems
   block:
@@ -42,6 +42,6 @@
       notify: 
         - reboot_apt_servers
 
-  when: os_family == "Debian"
+  when: ansible_facts.os_family == "Debian"
 
      
