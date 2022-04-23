@@ -2,6 +2,9 @@
 - name: Set Hostnames
   hostname:
     name: "{{ HOSTNAME_PREFIX }}-{{ HOSTNAME_END }}"
+  notify: 
+    - reboot_apt_servers
+    - reboot_rpm_servers
  
 - name: Setup base packeges and full update RPM based systems
   block:
