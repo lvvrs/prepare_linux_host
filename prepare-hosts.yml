@@ -9,7 +9,7 @@
       debug:
         var: ansible_facts
 
-- hosts: rpm_hosts
+- hosts: setup_hosts
   become: true
   gather_facts: false
   roles:
