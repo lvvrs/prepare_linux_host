@@ -32,15 +32,12 @@
 
 - name: Setup base packages and full update DEB based systems
   block:
-
-    - name: Update repository cache
-      apt:
-        update_cache: yes
     
     - name: Install based packages with update repositories caches
       apt:
         pkg: ['vim', 'tree', 'htop', 'nc', 'mc', 'wget', 'curl', 'tc', 'linux-cloud-tools']
         state: present
+        update_cache: yes
 
     - name: Update all packages
       apt:
