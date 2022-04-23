@@ -3,10 +3,10 @@
   reboot:
     reboot_timeout: '180'
     test_command: hostname
-  when: ansible_os_family == "RedHat"
+  when: os_family == "RedHat"
 
 - name: reboot_apt_servers
   reboot:
     reboot_timeout: '180'
     test_command: hostname
-  when: ansible_os_family == "Debian"
+  when: os_family == "Debian"
