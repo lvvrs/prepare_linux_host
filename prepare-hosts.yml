@@ -5,6 +5,10 @@
     - name: Check servers
       ping:
 
+    - name: Debug ansible vars
+      debug:
+        var: ansible_facts
+
 - hosts: rpm_hosts
   become: true
   gather_facts: false
