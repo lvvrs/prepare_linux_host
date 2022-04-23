@@ -8,6 +8,7 @@
     - name: Debug ansible vars
       debug:
         var: ansible_facts
+      when: DEBUG_FACTS == "true"
 
 - hosts: setup_hosts
   become: true

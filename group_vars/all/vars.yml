@@ -1,2 +1,3 @@
 ---
 HOSTNAME_PREFIX: host-role
+DEBUG_FACTS: false
