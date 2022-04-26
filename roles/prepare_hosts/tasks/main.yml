@@ -2,6 +2,7 @@
 - name: Set Hostnames
   hostname:
     name: "{{ HOSTNAME_PREFIX }}-{{ HOSTNAME_END }}"
+    use: systemd
   notify: 
     - reboot_apt_servers
     - reboot_rpm_servers
