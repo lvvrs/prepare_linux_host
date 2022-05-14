@@ -1,0 +1,45 @@
+---
+- name: Install XRDP on RPM distributions and configure FirewallD
+  block:
+    
+    - name: Install XRDP on RPM hosts
+      yum:
+        name: ['xrdp']
+        state: present
+        update_cache: yes
+
+    - name: Configure FirewallD
+      firewalld:
+        port: 3389/tcp
+        permnanent: yes
+        state: enabled
+        immediate: yes
+
+  when: ansible_facts['os_family'] == "RedHat"
+
+- name: Install XRDP on DEB destributions and configure UFW
+  block:
+
+    - name: Install XRDP on DEB hosts
+      apt:
+        pkg: ['xrdp']
+        state: present
+        update_cache: yes
+
+    - name: Configure UFW
+      ufw:
+        rule: allow
+        port: 3389
+        proto: tcp
+
+    - name: Reload UFW
+      ufw:
+        state: reloaded
+
+  when: ansible_facts['os_family'] == "Debian"
+
+- name: Enabled and Start XRDP server on all gui hosts
+  systemd:
+    name: xrdp
+    enabled: yes
+    state: started

@@ -15,4 +15,10 @@
   gather_facts: false
   roles:
     - prepare_hosts
-  
+
+- hosts: gui_hosts
+  become: true
+  gather_facts: false
+  roles:
+    - role: setup_xrdp
+      when:  XRDP_SETUP == "true"

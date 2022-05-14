@@ -1,3 +1,4 @@
 ---
 HOSTNAME_PREFIX: host-role
 DEBUG_FACTS: false
+XRDP_SETUP: true
